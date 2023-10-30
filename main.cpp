@@ -2,27 +2,26 @@
 #include <string>
 using namespace std;
 
-class Person {
-  public:
-    string name;
+/*
+  function overloading
+*/
+  
+int myMax(int x, int y) { 
+  return (x > y) ? x : y; 
+} 
 
-    Person(string a) {
-      name = a;
-    };
-};
-
-class Professor: public Person {
-  public:
-    string teaches;
-
-  Professor(string teaches): Person(teaches)
+float myMax(float x, float y) { 
+  return (x > y) ? x : y; 
 }
 
-int main() {
-  // Person giles("Giles");
-  // cout << giles.name;
+char myMax(char x, char y) { 
+  return (x > y) ? x : y; 
+} 
+  
+int main() { 
+  cout << myMax(3, 7) << endl; 
 
-  Professor walsh("Walsh");
+  cout << myMax(3.0, 7.0) << endl; 
 
-  cout << walsh.name;
-}
+  cout << myMax('g', 'e') << endl; 
+} 
