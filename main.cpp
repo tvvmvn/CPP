@@ -2,15 +2,27 @@
 #include <string>
 using namespace std;
 
+class Person {
+  public:
+    string name;
 
-int main() {
+    Person(string a) {
+      name = a;
+    };
+};
 
-  cout << "foo";
+class Professor: public Person {
+  public:
+    string teaches;
 
-  // program ends
-  exit(1); 
-
-  cout << "bar";
+  Professor(string teaches): Person(teaches)
 }
 
+int main() {
+  // Person giles("Giles");
+  // cout << giles.name;
 
+  Professor walsh("Walsh");
+
+  cout << walsh.name;
+}
