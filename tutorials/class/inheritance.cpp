@@ -19,7 +19,7 @@ class Professor: public Person {
   public:
     string teaches;
 
-    // polymorphism
+    // polymorphism (overrides)
     void introduceSelf() {
       cout << "My name is " + name + ", and I will be your " + teaches + " professor.\n";
     }
@@ -34,7 +34,7 @@ class Student: public Person {
   public:
     int year;
     
-    // polymorphism
+    // polymorphism (overrides)
     void introduceSelf() {
       cout << "Hi! I'm " + name + ", and I'm in year " + to_string(year) + ".\n"; 
     }
