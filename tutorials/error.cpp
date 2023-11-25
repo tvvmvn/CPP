@@ -3,29 +3,42 @@
 using namespace std;
 
 /*
-  Custom error
+  Not works
 */
 
 int main() {
-
-  int age = 15;
-
   try {
+    cout << x;
+  } catch (...) {
+    cout << "I caught error";
+  }
 
-    cout << "Guinness, please\n";
+  cout << "other operations";
+}
 
-    if (age < 18) {
-      /*
-        terminating due to uncaught exception (of type int)
-        
-        = JavaScript
-      */
-      throw 400;
+
+/*
+  Custom error
+*/
+
+
+void isPIN(string pin) {
+  try {
+    if (pin == "") {
+      throw "PIN is required";
+    } 
+
+    if (pin.length() != 4) {
+      throw "PIN must be 4 numbers";
     }
 
-    cout << "OK";
+    cout << "Nice PIN";
 
-  } catch (int code) {
-    cout << "ErrorCode: " << code;
+  } catch (char const* err) {
+    cout << err;
   }
+}
+
+int main() {
+  isPIN("");
 }

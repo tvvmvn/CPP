@@ -1,10 +1,16 @@
 #include <iostream>
 #include <string>
-using namespace std; // standard namespace library
 // date and time
 #include <chrono>
 #include <ctime>
-// math library is built on c++   
+// standard: namespace library
+using namespace std; 
+// math library is built-in
 
+void f(int x) {
+  cout << x;
+}
 
-
+int main() {
+  f("foo");
+}

@@ -3,9 +3,18 @@
 using namespace std;
 
 /*
-A virtual function (also known as virtual methods) is a member function 
-that is declared within a base class and is re-defined (overridden) 
-by a derived class. They are mainly used to achieve Runtime polymorphism.
+A class is abstract if it has at least one pure virtual function.
+
+An interface does not have an implementation of any of its methods, 
+it can be considered as a collection of method declarations. 
+In C++, an interface can be simulated by making all methods pure virtual. 
+In Java, there is a separate keyword for the interface.
+
+- reference
+Java has following keywords
+1) abstract class 
+2) interface
+complete abstract class
 */
 
 class Base {
@@ -24,9 +33,9 @@ class Derived : public Base {
   // private member variable
   int y;
  
-public:
-  // implementation of the pure virtual function
-  void fun() { cout << "fun() called"; }
+  public:
+    // implementation of the pure virtual function
+    void fun() { cout << "fun() called"; }
 };
  
 int main(void) {
@@ -39,7 +48,7 @@ int main(void) {
 
 
 /*
-  A class is abstract if it has at least one pure virtual function.
+  object of abstract class is not allowed.
 */
 
 class Test {
