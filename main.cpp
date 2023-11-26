@@ -7,10 +7,7 @@
 using namespace std; 
 // math library is built-in
 
-void f(int x) {
-  cout << x;
-}
 
 int main() {
-  f("foo");
+  cout << x;
 }
