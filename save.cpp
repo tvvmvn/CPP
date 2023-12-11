@@ -94,3 +94,55 @@ int main() {
 
   return 0;
 }
+
+
+int main() {
+
+  // * not works.
+  // expression must have class type but it has type "const char*".
+  // cout << "hello".append(" world");
+  // expression must have integral or unscoped enum type.
+  // cout << "hello" + " world";
+
+  // * o.k
+  // string hello = "Hello";
+  // cout << hello + " World";
+
+  // * o.k
+  // string hello = "Hello";
+  // cout << hello.append(" World");
+
+  /*
+  A binary expression contains two operands separated by one operator. 
+  All binary operators have left-to-right associativity.
+  */
+
+  // invalid operands to binary expression.
+  // no operator "+" matches these operands.
+  // string foo = "foo";
+  // cout << foo + 1;
+  
+  // string val;
+  // cin >> val;
+
+  // string y = "2023";
+  // int year = stoi(y);
+  
+  // cout << "Next year: " << year + 1;
+}
+
+// Driver Code 
+int main() 
+{ 
+    string name; 
+    int age; 
+  
+    // Take multiple input using cin 
+    cin >> name >> age; 
+  
+    // Print output 
+    cout << "Name : " << name << endl; 
+    cout << "Age : " << age << endl; 
+  
+    return 0; 
+}
