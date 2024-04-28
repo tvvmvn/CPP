@@ -17,7 +17,7 @@ class Menu {
 
 class Restaurant {
   public:
-    Menu menu[3];
+    Menu *menu;
 };
 
 int main() {
@@ -26,10 +26,5 @@ int main() {
   Menu menu3("Tomato Soup", "Vegan");
 
   Restaurant restaurant;
-  restaurant.menu[0] = menu1;
-  restaurant.menu[1] = menu2;
-  restaurant.menu[2] = menu3;
-
-  cout << restaurant.menu[0].name;
 }
 
