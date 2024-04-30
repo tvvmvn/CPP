@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
-  Not works
+Not works
 */
 
 int main() {
@@ -18,7 +18,7 @@ int main() {
 
 
 /*
-  Custom error
+Custom error
 */
 
 

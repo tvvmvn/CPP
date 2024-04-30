@@ -2,20 +2,23 @@
 #include <string>
 using namespace std;
 
+
 /*
+Abstraction 
+
 A class is abstract if it has at least one pure virtual function.
 
-An interface does not have an implementation of any of its methods, 
-it can be considered as a collection of method declarations. 
+An interface does not have an implementation of any of its methods.
+It can be considered as a collection of method declarations. 
 In C++, an interface can be simulated by making all methods pure virtual. 
-In Java, there is a separate keyword for the interface.
 
-- reference
-Java has following keywords
-1) abstract class 
-2) interface
-complete abstract class
+* reference
+In Java, there is a separate keyword for this.
+
+1) abstract 
+2) interface (complete abstract class)
 */
+
 
 class Base {
   // private member variable
@@ -48,8 +51,9 @@ int main(void) {
 
 
 /*
-  object of abstract class is not allowed.
+object of abstract class is not allowed.
 */
+
 
 class Test {
   // private member variable
@@ -68,11 +72,13 @@ int main(void) {
   Test t;
 }
 
+
 /*
-  C++ program to demonstrate that if we do not override
-  the pure virtual function in the derived class, then
-  the derived class also becomes an abstract class
+C++ program to demonstrate that if we do not override
+the pure virtual function in the derived class, then
+the derived class also becomes an abstract class
 */
+
 
 class Base {
   public:
@@ -88,38 +94,13 @@ int main(void) {
   Derived d;
 }
 
-/*
-  C++ program that demonstrate that
-  we can have pointers and references of abstract class type.
-*/
-
-class Base {
-  public:
-    // pure virtual function
-    virtual void show() = 0;
-};
- 
-class Derived : public Base {
-  public:
-    // implementation of the pure virtual function
-    void show() { cout << "In Derived \n"; }
-};
- 
-int main(void) {
-  // creating a pointer of type Base 
-  // pointing to an object of type Derived
-  Base* bp = new Derived();
-
-  // calling the show() function using the pointer
-  bp->show();
-}
-
 
 /*
 C++ program to demonstrate that
 an abstract class can have constructors.
 */
  
+
 // An abstract class with constructor
 class Base {
   protected:
@@ -168,10 +149,12 @@ int main(void) {
   ptr->fun();
 }
 
+
 /*
 An abstract class in C++ can also be defined 
 using struct keyword.
 */
+
 
 struct shapeClass {
     virtual void Draw()=0;

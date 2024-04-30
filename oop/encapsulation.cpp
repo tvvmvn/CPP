@@ -19,6 +19,8 @@ class Employee {
 
 int main() {
   Employee john;
+
   john.setSalary(500);
-  cout << john.getSalary();
+
+  cout << john.getSalary(); // 500
 }

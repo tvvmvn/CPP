@@ -1,10 +1,28 @@
 # C++ Programming
 
 
-### Tutorials
-1. Class
-2. Function
-3. Exception Handling
+### Class
+1. Class and Instance
+1. Methods
+1. Constructor
+1. Static members 
+1. Nested Class
+
+
+### Function
+1. Overloading
+2. Generics
+
+
+## Others
+1. Exception Handling
+
+
+### OOP Features
+1. Encapsulation
+1. Polymorphism
+1. Inheritance
+1. Abstraction
 
 
 ### UML Relationships
@@ -17,8 +35,8 @@
 
  
 ### SOLID principles
-1. Interface Seperation Principle
-2. Dependency Inversion Principle
 
 
 ### GoF Design Patterns
+1. Creational Pattern
+- Abstract Factory
