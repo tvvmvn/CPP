@@ -25,7 +25,7 @@
 1. Abstraction
 
 
-### UML Relationships
+### Class Relationships
 1. Association
 2. Aggregation
 3. Composition

@@ -3,11 +3,6 @@
 using namespace std;
 
 
-/*
-constructor with inheritance 
-*/
-
-
 int main(int argc, char const *argv[])
 {
   /* code */
