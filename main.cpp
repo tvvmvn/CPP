@@ -2,9 +2,6 @@
 #include <string>
 using namespace std;
 
+// GoF
 
-int main(int argc, char const *argv[])
-{
-  /* code */
-  return 0;
-}
+int main() {};

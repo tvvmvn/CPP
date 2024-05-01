@@ -3,26 +3,26 @@
 using namespace std;
 
 
-// dependency
-
+// isp
 class Fuel {
   public:
     string type;
-    int liters;
+    
+    int fill() {
+      return 100;
+    }
 };
 
 class Car {
   public:
     void drive(Fuel fuel) {
-      cout << "bruhhh -";
+      cout << fuel.fill();
     }
 };
 
 int main() {
   Fuel fuel;
-  fuel.type = "Gasoline";
-  fuel.liters = 30;
-
   Car car;
+
   car.drive(fuel);
 }

@@ -25,6 +25,6 @@ class Keyboard {
 class Drum {
   public:
     string sound() {
-      return "doom chit";
+      return "doom cit";
     }
 };
