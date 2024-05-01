@@ -44,3 +44,8 @@
 ### GoF Design Patterns
 1. Creational Pattern
 - Abstract Factory
+- Factory Method
+- Builder
+- Prototype
+
+2. Structural Pattern

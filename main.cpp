@@ -2,6 +2,6 @@
 #include <string>
 using namespace std;
 
-// GoF
+// GoF Adapter
 
 int main() {};
