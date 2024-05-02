@@ -14,7 +14,7 @@
 2. Generics
 
 
-## Others
+### Others
 1. Exception Handling
 
 
@@ -41,11 +41,8 @@
 4. Interface Segregation
 5. Dependency Inversion
 
-### GoF Design Patterns
-1. Creational Pattern
-- Abstract Factory
-- Factory Method
-- Builder
-- Prototype
 
+### GoF Design Patterns
+1. Creational Pattern 
 2. Structural Pattern
+3. Behavioral Pattern
