@@ -65,18 +65,18 @@ class ChicagoCheesePizza : public Pizza {
 
 // Concrete Chicago Pepperoni Pizza
 class ChicagoPepperoniPizza : public Pizza {
-public:
-  void bake() override {
-    cout << "Baking Chicago-style pepperoni pizza." << endl;
-  }
+  public:
+    void bake() override {
+      cout << "Baking Chicago-style pepperoni pizza." << endl;
+    }
 
-  void cut() override {
-    cout << "Cutting Chicago-style pepperoni pizza." << endl;
-  }
+    void cut() override {
+      cout << "Cutting Chicago-style pepperoni pizza." << endl;
+    }
 
-  void box() override {
-    cout << "Boxing Chicago-style pepperoni pizza." << endl;
-  }
+    void box() override {
+      cout << "Boxing Chicago-style pepperoni pizza." << endl;
+    }
 };
 
 // Abstract Factory Interface
@@ -113,13 +113,16 @@ class ChicagoPizzaFactory : public PizzaFactory {
 int main() {
   // Create a New York Pizza Factory
   PizzaFactory *newYorkFactory = new NewYorkPizzaFactory();
+
   Pizza *newYorkCheesePizza = newYorkFactory->createCheesePizza();
   Pizza *newYorkPepperoniPizza = newYorkFactory->createPepperoniPizza();
 
   // Create a Chicago Pizza Factory
   PizzaFactory *chicagoFactory = new ChicagoPizzaFactory();
+
   Pizza *chicagoCheesePizza = chicagoFactory->createCheesePizza();
   Pizza *chicagoPepperoniPizza = chicagoFactory->createPepperoniPizza();
+
 
   // Order and prepare the pizzas
   newYorkCheesePizza->bake();

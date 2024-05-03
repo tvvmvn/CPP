@@ -50,8 +50,7 @@ int main() {
   singleton.someOperation();
 
   // Attempting to create another instance will not work
-  // Singleton anotherInstance; // This line would not
-  // compile
+  // Singleton anotherInstance; // This line would not compile
 
   return 0;
 }

@@ -10,86 +10,38 @@ This allows for flexibility in object creation and promotes loose coupling
 between the creator (client code) and the concrete products.
 */
 
-class Shape {
+
+class Car {
   public:
-    virtual void draw() = 0;
-    virtual ~Shape() {} // Virtual destructor for polymorphism
+    virtual void drive() = 0;
 };
 
-// Concrete product class - Circle
-class Circle : public Shape {
+class Avante : public Car {
   public:
-    void draw() override {
-      std::cout << "Drawing a Circle" << std::endl;
+    void drive() {
+      cout << "Avante is driving";
     }
 };
 
-// Concrete product class - Square
-class Square : public Shape {
+class XM3 : public Car {};
+
+class CarFactory {
   public:
-    void draw() override {
-      std::cout << "Drawing a Square" << std::endl;
+    virtual Car *create() = 0;
+};
+
+class AvanteFactory : public CarFactory {
+  public:
+    Car *create() {
+      return new Avante();
     }
 };
 
-
-// Abstract creator class
-class ShapeFactory {
-  public:
-    virtual Shape *createShape() = 0;
-    virtual ~ShapeFactory() {} // Virtual destructor for polymorphism
-};
-
-// Concrete creator class - CircleFactory
-class CircleFactory : public ShapeFactory {
-  public:
-    Shape *createShape() override { return new Circle(); }
-};
-
-// Concrete creator class - SquareFactory
-class SquareFactory : public ShapeFactory {
-  public:
-    Shape *createShape() override { return new Square(); }
-};
-
+class XM3Factory {};
 
 int main() {
-  ShapeFactory *circleFactory = new CircleFactory();
-  ShapeFactory *squareFactory = new SquareFactory();
+  CarFactory *avanteFactory = new AvanteFactory();
+  Car *avante = avanteFactory->create();
 
-  Shape *circle = circleFactory->createShape();
-  Shape *square = squareFactory->createShape();
-
-  circle->draw(); // Output: Drawing a Circle
-  square->draw(); // Output: Drawing a Square
-
-  delete circleFactory;
-  delete squareFactory;
-  delete circle;
-  delete square;
-
-  // Client code based on user-input
-  /* 
-  cout << "Enter shape type (circle or square): ";
-  string shapeType;
-  cin >> shapeType;
-
-  ShapeFactory* shapeFactory = nullptr;
-  if (shapeType == "circle") {
-      shapeFactory = new CircleFactory();
-  } else if (shapeType == "square") {
-      shapeFactory = new SquareFactory();
-  } else {
-      cout << "Invalid shape type entered." << endl;
-      return 1;
-  }
-
-  Shape* shape = shapeFactory->createShape();
-  shape->draw();
-
-  delete shapeFactory;
-  delete shape; 
-  */
-
-  return 0;
+  avante->drive(); // Avante is driving
 }
