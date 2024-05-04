@@ -17,7 +17,9 @@ class Engine {
 // Subsystem 2
 class Lights {
   public:
-    void TurnOn() { cout << "Lights on" << endl; }
+    void TurnOn() { 
+      cout << "Lights on" << endl; 
+    }
 
     void TurnOff() {
       cout << "Lights off" << endl;
@@ -46,12 +48,12 @@ class Car {
     }
 };
 
-// Using the Facade to start and stop the car
 int main() {
+  // Using the Facade to start and stop the car
   Car car;
   car.StartCar();
 
-  // Simulate some driving..
+  // driving..
 
   car.StopCar();
 

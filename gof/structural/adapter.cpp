@@ -5,45 +5,36 @@ using namespace std;
 // Legacy Printer (Adaptee)
 class LegacyPrinter {
   public:
-    void printInUppercase(const string &text) {
-      cout << "Printing: " << text << endl;
+    void print(const string &text) {
+      cout << "Command: " << text << endl;
     }
 };
 
 // Modern Computer (Client)
-class ModernComputer {
-  public:
-    void sendCommand(const string &command) {
-      cout << "Sending command: " << command << endl;
-    }
-};
+class ModernComputer {};
 
-// Adapter class to make the LegacyPrinter compatible with
-// ModernComputer
+// Adapter to make the LegacyPrinter compatible with ModernComputer
 class PrinterAdapter {
   private:
     LegacyPrinter legacyPrinter;
 
   public:
     void sendCommand(const string &command) {
-      // Convert the command to uppercase and pass it to
-      // the LegacyPrinter
+      // Convert the command to uppercase and pass it to the LegacyPrinter
       string uppercaseCommand = command;
       
       for (char &c : uppercaseCommand) {
         c = toupper(c);
       }
 
-      legacyPrinter.printInUppercase(uppercaseCommand);
+      legacyPrinter.print(uppercaseCommand);
     }
 };
 
 int main() {
-  ModernComputer computer;
   PrinterAdapter adapter;
 
-  computer.sendCommand("Print this in lowercase");
-  adapter.sendCommand("Print this in lowercase (adapted)");
+  adapter.sendCommand("Print this");
 
   return 0;
 }

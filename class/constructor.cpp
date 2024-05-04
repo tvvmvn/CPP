@@ -39,48 +39,24 @@ Constructor with inheritance
 
 class Person {
   public:
-    string name;
+    string lastName;
 
-    Person(string a) {
-      name = a;
-    };
-
-    void introduceSelf() {
-      cout << "Hi! I', " + name + "\n";
-    }
+    Person(string a): lastName(a) {};
 };
 
-class Professor: public Person {
+class Professor : public Person {
   public:
-    string teaches;
+    string major;
 
-    Professor(string a, string b): Person(a) {
-      teaches = b;
-    }
+    Professor(string a, string b): Person(a), major(b) {}
 
-    void introduceSelf() {
-      cout << "My name is " + name + ", and I will be your " + teaches + " professor.\n";
-    }
-};
-
-class Student: public Person {
-  private:
-    int year;
-
-  public:
-    Student(string a, int b): Person(a) {
-      year = b;
-    };
-
-    void introduceSelf() {
-      cout << "Hi! I'm " + name + ", and I'm in year " << year << ".\n";
+    void about() {
+      cout << "Mr." + lastName + " is teaching " + major;
     }
 };
 
 int main() {
-  Professor walsh("Walsh", "Psychology");
-  walsh.introduceSelf();
+  Professor john("Doe", "Mathematics");
 
-  Student summers("Summers", 2);
-  summers.introduceSelf();
+  john.about(); // Mr.Doe is teaching Mathematics
 }

@@ -3,93 +3,57 @@
 
 using namespace std;
 
-// Component interface - defines the basic ice cream operations.
-class IceCream {
+class Car {
   public:
-    virtual string getDescription() const = 0;
-    virtual double cost() const = 0;
+    virtual string about() = 0;
 };
 
-// Concrete Component - the basic ice cream class.
-class VanillaIceCream : public IceCream {
+class Avante : public Car {
   public:
-    string getDescription() const override {
-      return "Vanilla Ice Cream";
-    }
-
-    double cost() const override { return 160.0; }
-};
-
-// Decorator - abstract class that extends IceCream.
-class IceCreamDecorator : public IceCream {
-  protected:
-    IceCream *iceCream;
-
-  public:
-    IceCreamDecorator(IceCream *ic): iceCream(ic) {}
-
-    string getDescription() const override {
-      return iceCream->getDescription();
-    }
-
-    double cost() const override {
-      return iceCream->cost();
+    string about() {
+      return "Hyundai Avante";
     }
 };
 
-// Concrete Decorator - adds chocolate topping.
-class ChocolateDecorator : public IceCreamDecorator {
+class CarDecorator : public Car {
   public:
-    ChocolateDecorator(IceCream *ic): IceCreamDecorator(ic) {}
+    Car* car;
+    CarDecorator(Car *c): car(c) {};
 
-    string getDescription() const override {
-      return iceCream->getDescription() + " with Chocolate";
-    }
-
-    double cost() const override {
-      return iceCream->cost() + 100.0;
+    string about() {
+      return car->about();
     }
 };
 
-// Concrete Decorator - adds caramel topping.
-class CaramelDecorator : public IceCreamDecorator {
+
+class WingDecorator : public CarDecorator {
   public:
-    CaramelDecorator(IceCream *ic): IceCreamDecorator(ic) {}
-
-    string getDescription() const override {
-      return iceCream->getDescription() + " with Caramel";
+    WingDecorator(Car *c): CarDecorator(c) {}; 
+    
+    string about() {
+      return car->about() + " with wing";
     }
+};
 
-    double cost() const override {
-      return iceCream->cost() + 150.0;
+class CarbonDecorator : public CarDecorator {
+  public:
+    CarbonDecorator(Car *c): CarDecorator(c) {}; 
+    
+    string about() {
+      return car->about() + " covered with carbon";
     }
 };
 
 int main() {
-  // Create a vanilla ice cream
-  IceCream *vanillaIceCream = new VanillaIceCream();
+  Car *avante = new Avante();
+  Car *avante_wing = new WingDecorator(avante);
+  Car *avante_carbon = new CarbonDecorator(avante);
 
-  cout << "Order: " << vanillaIceCream->getDescription()
-       << ", Cost: Rs." << vanillaIceCream->cost()
-       << endl;
+  cout << avante->about() << endl; // Hyundai Avante
+  cout << avante_wing->about() << endl; // Hyundai Avante with wing
+  cout << avante_carbon->about() << endl; // Hyundai Avante covered with carbon
 
-  // Wrap it with ChocolateDecorator
-  IceCream *chocolateIceCream = new ChocolateDecorator(vanillaIceCream);
-  
-  cout << "Order: " << chocolateIceCream->getDescription()
-       << ", Cost: Rs." << chocolateIceCream->cost()
-       << endl;
-
-  // Wrap it with CaramelDecorator
-  IceCream *caramelIceCream = new CaramelDecorator(chocolateIceCream);
-  
-  cout << "Order: " << caramelIceCream->getDescription()
-       << ", Cost: Rs." << caramelIceCream->cost()
-       << endl;
-
-  delete vanillaIceCream;
-  delete chocolateIceCream;
-  delete caramelIceCream;
-
-  return 0;
+  delete avante;
+  delete avante_wing;
+  delete avante_carbon;
 }

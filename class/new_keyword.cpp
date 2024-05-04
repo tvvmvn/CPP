@@ -42,7 +42,7 @@ class Car {
 class Avante : public Car {
   public:
     void drive() {
-      cout << "Avante is driving";
+      cout << "Avante is being driven";
     }
 };
 
