@@ -36,18 +36,13 @@ you must use new
 
 class Car {
   public:
-    virtual void drive() = 0;
-};
-
-class Avante : public Car {
-  public:
     void drive() {
-      cout << "Avante is being driven";
+      cout << "driving a car";
     }
 };
 
 int main() {
-  Car *car = new Avante();
+  Car *car = new Car();
 
   car->drive();
 

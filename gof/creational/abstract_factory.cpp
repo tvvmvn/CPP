@@ -7,147 +7,72 @@ It provides an interface for creating families of related or
 dependent objects without specifying their concrete classes.
 */
 
-// Abstract Product Interface
-class Pizza {
+// Car
+class Car {
   public:
-    virtual void bake() = 0;
-    virtual void cut() = 0;
-    virtual void box() = 0;
+    virtual void drive() = 0;
 };
 
-// Concrete New York Cheese Pizza
-class NewYorkCheesePizza : public Pizza {
+class AvanteGasoline : public Car {
   public:
-    void bake() override {
-      cout << "Baking New York-style cheese pizza." << endl;
-    }
-
-    void cut() override {
-      cout << "Cutting New York-style cheese pizza." << endl;
-    }
-
-    void box() override {
-      cout << "Boxing New York-style cheese pizza." << endl;
+    void drive() {
+      cout << "driving an Avante Gasoline" << endl;
     }
 };
 
-// Concrete New York Pepperoni Pizza
-class NewYorkPepperoniPizza : public Pizza {
+class AvanteHybrid : public Car {
   public:
-    void bake() override {
-      cout << "Baking New York-style pepperoni pizza." << endl;
-    }
-
-    void cut() override {
-      cout << "Cutting New York-style pepperoni pizza." << endl;
-    }
-
-    void box() override {
-      cout << "Boxing New York-style pepperoni pizza." << endl;
+    void drive() {
+      cout << "driving an Avante Hybrid" << endl;
     }
 };
 
-// Concrete Chicago Cheese Pizza
-class ChicagoCheesePizza : public Pizza {
+class XM3Gasoline : public Car {};
+
+class XM3Hybrid : public Car {
   public:
-    void bake() override {
-      cout << "Baking Chicago-style cheese pizza." << endl;
-    }
-
-    void cut() override {
-      cout << "Cutting Chicago-style cheese pizza." << endl;
-    }
-
-    void box() override {
-      cout << "Boxing Chicago-style cheese pizza." << endl;
+    void drive() {
+      cout << "driving an XM3 Hybrid" << endl;
     }
 };
 
-// Concrete Chicago Pepperoni Pizza
-class ChicagoPepperoniPizza : public Pizza {
+
+// CarFactory
+class CarFactory {
   public:
-    void bake() override {
-      cout << "Baking Chicago-style pepperoni pizza." << endl;
-    }
+    virtual Car *createGasolineCar() = 0;
+    virtual Car *createHybridCar() = 0;
+};
 
-    void cut() override {
-      cout << "Cutting Chicago-style pepperoni pizza." << endl;
+class AvanteFactory : public CarFactory {
+  public:
+    Car *createGasolineCar() {
+      return new AvanteGasoline();
     }
-
-    void box() override {
-      cout << "Boxing Chicago-style pepperoni pizza." << endl;
+    
+    Car *createHybridCar() {
+      return new AvanteHybrid();
     }
 };
 
-// Abstract Factory Interface
-class PizzaFactory {
-  public:
-    virtual Pizza *createCheesePizza() = 0;
-    virtual Pizza *createPepperoniPizza() = 0;
-};
+class XM3Factory : public CarFactory {};
 
-// Concrete New York Pizza Factory
-class NewYorkPizzaFactory : public PizzaFactory {
-  public:
-    Pizza *createCheesePizza() override {
-      return new NewYorkCheesePizza();
-    }
 
-    Pizza *createPepperoniPizza() override {
-      return new NewYorkPepperoniPizza();
-    }
-};
-
-// Concrete Chicago Pizza Factory
-class ChicagoPizzaFactory : public PizzaFactory {
-  public:
-    Pizza *createCheesePizza() override {
-      return new ChicagoCheesePizza();
-    }
-
-    Pizza *createPepperoniPizza() override {
-      return new ChicagoPepperoniPizza();
-    }
-};
-
+// Run
 int main() {
-  // Create a New York Pizza Factory
-  PizzaFactory *newYorkFactory = new NewYorkPizzaFactory();
+  // CarFactory
+  CarFactory *avanteFactory = new AvanteFactory();
 
-  Pizza *newYorkCheesePizza = newYorkFactory->createCheesePizza();
-  Pizza *newYorkPepperoniPizza = newYorkFactory->createPepperoniPizza();
+  // Car
+  Car *avanteGasoline = avanteFactory->createGasolineCar();
+  Car *avanteHybrid = avanteFactory->createHybridCar();
 
-  // Create a Chicago Pizza Factory
-  PizzaFactory *chicagoFactory = new ChicagoPizzaFactory();
+  // usage
+  avanteGasoline->drive();
+  avanteHybrid->drive();
 
-  Pizza *chicagoCheesePizza = chicagoFactory->createCheesePizza();
-  Pizza *chicagoPepperoniPizza = chicagoFactory->createPepperoniPizza();
-
-
-  // Order and prepare the pizzas
-  newYorkCheesePizza->bake();
-  newYorkCheesePizza->cut();
-  newYorkCheesePizza->box();
-
-  newYorkPepperoniPizza->bake();
-  newYorkPepperoniPizza->cut();
-  newYorkPepperoniPizza->box();
-
-  chicagoCheesePizza->bake();
-  chicagoCheesePizza->cut();
-  chicagoCheesePizza->box();
-
-  chicagoPepperoniPizza->bake();
-  chicagoPepperoniPizza->cut();
-  chicagoPepperoniPizza->box();
-
-  // Clean up
-  delete newYorkFactory;
-  delete newYorkCheesePizza;
-  delete newYorkPepperoniPizza;
-  delete chicagoFactory;
-  delete chicagoCheesePizza;
-  delete chicagoPepperoniPizza;
-
-  return 0;
+  // clean up
+  // delete avanteFactory;
+  // delete avanteGasoline;
+  // delete avanteHybrid;
 }
