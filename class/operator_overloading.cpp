@@ -6,15 +6,11 @@ class Car {
   public:
     string name;
 
-  Car operator+(Car const &car) {
+  Car operator+(Car car) {
     Car result;
     result.name = name + " " + car.name;
 
     return result;
-  }
-
-  void print() {
-    cout << name;
   }
 };
 
@@ -28,5 +24,5 @@ int main() {
 
   both = avante + xm3;
 
-  both.print(); // Avante XM3
+  cout << both.name; // Avante XM3
 }
