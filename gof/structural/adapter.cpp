@@ -2,39 +2,35 @@
 #include <string>
 using namespace std;
 
-// Legacy Printer (Adaptee)
-class LegacyPrinter {
+
+// Socket
+class Socket110 {
   public:
-    void print(const string &text) {
-      cout << "Command: " << text << endl;
+    void charge(int volt) {
+        cout << "Charging in " << volt << "V" << endl;
     }
 };
 
-// Modern Computer (Client)
-class ModernComputer {};
+// Charge
+class Charger220 {};
 
-// Adapter to make the LegacyPrinter compatible with ModernComputer
-class PrinterAdapter {
+// Adapter
+class Adapter {
   private:
-    LegacyPrinter legacyPrinter;
+    Socket110 socket110;
 
   public:
-    void sendCommand(const string &command) {
-      // Convert the command to uppercase and pass it to the LegacyPrinter
-      string uppercaseCommand = command;
-      
-      for (char &c : uppercaseCommand) {
-        c = toupper(c);
-      }
+    void convert(int volt) {
 
-      legacyPrinter.print(uppercaseCommand);
-    }
+      // 220 to 110
+
+      socket110.charge(110);
+    };
 };
 
+// main
 int main() {
-  PrinterAdapter adapter;
+  Adapter adapter;
 
-  adapter.sendCommand("Print this");
-
-  return 0;
+  adapter.convert(220);
 }

@@ -5,6 +5,7 @@
 1. Class And Instance
 1. Methods
 1. Constructor
+1. Destructor
 1. Static Members 
 1. New Keyword
 1. This Keyword

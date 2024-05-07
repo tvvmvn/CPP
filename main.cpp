@@ -2,6 +2,4 @@
 #include <string>
 using namespace std;
 
-// memo: destructor
-
-int main() {};
+// memo: destructor, &engine

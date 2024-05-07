@@ -3,6 +3,10 @@
 
 using namespace std;
 
+/*
+Car
+*/
+
 class Car {
   public:
     virtual string about() = 0;
@@ -14,6 +18,10 @@ class Avante : public Car {
       return "Hyundai Avante";
     }
 };
+
+/*
+Decorator
+*/
 
 class CarDecorator : public Car {
   public:
@@ -43,6 +51,10 @@ class CarbonDecorator : public CarDecorator {
       return car->about() + " covered with carbon";
     }
 };
+
+/*
+main
+*/
 
 int main() {
   Car *avante = new Avante();

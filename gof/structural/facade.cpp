@@ -51,10 +51,9 @@ class Car {
 int main() {
   // Using the Facade to start and stop the car
   Car car;
+  
   car.StartCar();
-
   // driving..
-
   car.StopCar();
 
   return 0;
