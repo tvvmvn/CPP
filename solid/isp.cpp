@@ -2,31 +2,30 @@
 #include <string>
 using namespace std;
 
+// fat interface
+class MFP {
+  public:
+    virtual void print() = 0;
+    virtual void scan() = 0;
+    virtual void fax() = 0;
+};
 
 /*
-Do not force any client to implement
-an interface which is irrelavant to them.
+To adhere to the ISP, we could break down the MFP interface 
+into smaller interfaces.
 */
 
-
-// fat interface
-class Menu {
-  virtual void readMeatMenu() = 0;
-  virtual void readVeganMenu() = 0;
+class Printer {
+  public:
+    virtual void print() = 0;
 };
 
-// specific interfaces
-class VeganMenu {
-  virtual void readMenu() = 0;
+class Scanner {
+  public:
+    virtual void scan() = 0;
 };
 
-class MeatMenu {
-  virtual void readMenu() = 0;
-};
-
-// implements
-class Vegan : VeganMenu {
-  void readMenu() {
-    // ..
-  }
+class Fax {
+  public:
+    virtual void fax() = 0;
 };

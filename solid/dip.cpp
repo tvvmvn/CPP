@@ -2,20 +2,55 @@
 #include <string>
 using namespace std;
 
-
 /*
-A class should rely on abstractions - interface or abstract class
-rather than concrete implementations.
+high-level modules should not depend on low-level modules. 
+Both should depend on abstractions. 
+
+Kids: high-level module
+Lego: low-level module
+Toy: abstraction
 */
 
-// interface
-class Animal {
-  virtual string sound() = 0;
+// DIP violate
+class Toy {
+  public:
+    virtual void use() = 0;
 };
 
-class Dog : public Animal {
+class Lego : public Toy {
   public:
-    string sound() {
-      return "Bark!";
+    void use() {};
+};
+
+class PS5 : public Toy {};
+
+class Kids {
+  public:
+    void play() {
+      // you have to modify this if kids want to play with PS5.
+      Lego lego;
+
+      lego.use();
+    }
+};
+
+// DIP apply
+class Toy {
+  public:
+    virtual void use() = 0;
+};
+
+class Lego : public Toy {
+  public:
+    void use() {};
+};
+
+class PS5 : public Toy {};
+
+class Kids {
+  public:
+    // depend on abstraction
+    void play(Toy* toy) {
+      toy->use();
     }
 };

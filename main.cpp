@@ -2,4 +2,6 @@
 #include <string>
 using namespace std;
 
-int main() {}
+// memo: destructor
+
+int main() {};
