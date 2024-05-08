@@ -36,6 +36,7 @@ class WeatherStation {
       temperature = temp;
       humidity = hum;
       pressure = press;
+
       notifyObservers();
     }
 };
@@ -44,27 +45,26 @@ class WeatherStation {
 class Display : public Observer {
   public:
     void update(float temperature, float humidity, float pressure) {
-      cout << "Display: Temperature = " << temperature
-                << "°C, Humidity = " << humidity
-                << "%, Pressure = " << pressure << " hPa"
-                << endl;
+      cout << "Display: Temperature: " << temperature << "°C, "
+           << "Humidity: " << humidity << "%, "
+           << "Pressure: " << pressure << " hPa"
+           << endl;
     }
 };
 
 int main() {
   WeatherStation weatherStation;
-
-  // Create displays
-  Display display1;
-  Display display2;
+  Display display;
 
   // Register displays as observers
-  weatherStation.registerObserver(&display1);
-  weatherStation.registerObserver(&display2);
+  weatherStation.registerObserver(&display);
 
   // Simulate weather data updates
   weatherStation.setMeasurements(25.5, 60, 1013.2);
   weatherStation.setMeasurements(24.8, 58, 1014.5);
 
+
+  // Display: Temperature: 25.5xc2xb0C, Humidity: 60%, Pressure: 1013.2 hPa
+  // Display: Temperature: 24.8xc2xb0C, Humidity: 58%, Pressure: 1014.5 hPa
   return 0;
 }

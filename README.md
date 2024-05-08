@@ -21,6 +21,8 @@
 
 ### Others
 1. Exception Handling
+1. Vector
+1. Iterator
 
 
 ### OOP Features
