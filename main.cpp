@@ -2,5 +2,16 @@
 #include <string>
 using namespace std;
 
+class MyClass {
+  public:
+    MyClass() {
+      cout << x;
+    }
+};
 
-int main() {};
+int x = 2;
+
+int main() {
+
+  MyClass myObj;
+};
