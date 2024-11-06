@@ -12,6 +12,5 @@ class MyClass {
 int x = 2;
 
 int main() {
-
   MyClass myObj;
 };

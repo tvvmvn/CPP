@@ -2,30 +2,29 @@
 #include <string>
 using namespace std;
 
-
-/*
-Class and instances
-*/
-
-
-class Beer {
-  public:
-    string name;
-    string origin;
-    bool available;
+class MyClass {       // The class
+  public:             // Access specifier
+    int myNum;        // Attribute (int variable)
+    string myString;  // Attribute (string variable)
 };
 
 int main() {
-  Beer irishBeer;
-  irishBeer.name = "Guinness";
-  irishBeer.origin = "Ireland";
-  irishBeer.available = false;
-  
-  Beer dutchBeer;
-  dutchBeer.name = "Heineken";
-  dutchBeer.origin = "Netherlands";
-  dutchBeer.available = true;
+  MyClass myObj;  // Create an object of MyClass
 
-  cout << irishBeer.name << " " << irishBeer.origin << "\n";
-  cout << dutchBeer.origin << " " << irishBeer.origin;
+  // Access attributes and set values
+  myObj.myNum = 15;
+  myObj.myString = "Some text";
+
+  // Print values
+  cout << myObj.myNum << "\n"; 
+  cout << myObj.myString; 
+  
+  return 0;
 }
+
+/*
+Output
+
+15
+Some text
+*/

@@ -1,17 +1,18 @@
 #include <iostream>
-#include <vector>
+#include <deque>
 using namespace std;
 
 int main() {
-  // Create a vector called cars that will store strings
-  vector<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+  // Create a deque called cars that will store strings
+  deque<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
-  // Print vector elements
+  // Print deque elements
   for (string car : cars) {
     cout << car << "\n";
   }
   return 0;
 }
+
 
 /*
 Output

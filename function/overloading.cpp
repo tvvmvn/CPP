@@ -20,8 +20,6 @@ char myMax(char x, char y) {
   
 int main() { 
   cout << myMax(3, 7) << endl; 
-
   cout << myMax(3.0, 7.0) << endl; 
-
   cout << myMax('g', 'e') << endl;
 } 

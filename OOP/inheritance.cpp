@@ -5,7 +5,6 @@ using namespace std;
 // Base class
 class Vehicle {
   public: 
-    string brand = "Ford";
     void honk() {
       cout << "Tuut, tuut! \n" ;
     }
@@ -14,13 +13,13 @@ class Vehicle {
 // Derived class
 class Car: public Vehicle {
   public: 
-    string model = "Mustang";
+    string brand = "Tesla";
 };
 
 int main() {
   Car myCar;
   myCar.honk();
-  cout << myCar.brand + " " + myCar.model;
+
   return 0;
 }
 

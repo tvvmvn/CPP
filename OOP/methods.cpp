@@ -2,25 +2,18 @@
 #include <string>
 using namespace std;
 
-
-/*
-  function member
-*/
-
-
-class Beer {
-  public:  
-    string name;
-    string origin;
-    bool available;
-
-    string sound() {
-      return "Cool!";
+// Base class
+class Vehicle {
+  public: 
+    void honk() {
+      cout << "Tuut, tuut! \n" ;
     }
 };
 
 int main() {
-  Beer irishBeer;
+  Vehicle car;
+  car.honk();
 
-  cout << irishBeer.sound();
+  return 0;
 }
+

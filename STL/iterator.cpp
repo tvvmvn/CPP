@@ -18,6 +18,8 @@ int main() {
 }
 
 /*
+Output
+
 Volvo
 BMW
 Ford
