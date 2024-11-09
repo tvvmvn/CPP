@@ -13,7 +13,9 @@ class Base {
 class Derived : public Base {
   public:
     // implementation of the pure virtual function
-    void fun() { cout << "fun() called"; }
+    void fun() { 
+      cout << "fun() called"; 
+    }
 };
  
 int main(void) {
