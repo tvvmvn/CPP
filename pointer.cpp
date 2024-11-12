@@ -4,10 +4,11 @@ using namespace std;
 
 int main() {
   int myAge = 43;  
+  // pointer
   int* ptr = &myAge;
 
-  // dereferencing a pointer.
-  cout << *ptr;
+  // print pointer (address of myAge variable)
+  cout << ptr;
 
   return 0;
 }

@@ -1,11 +1,8 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
-  string greeting = "Hello";
-
-  cout << greeting;
+  cout << "Hello World!";
   
   return 0;
 }
