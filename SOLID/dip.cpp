@@ -28,7 +28,6 @@ class Kids {
 
 int main() {
   Kids joe;
-  // Toy* lego = new Lego();
   Toy* lego = new Lego();
   
   joe.play(lego);
