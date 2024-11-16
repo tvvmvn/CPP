@@ -2,32 +2,30 @@
 #include <string>
 using namespace std;
 
-class Base {
+// Base class is standard for making group of similar items.
+class Animal {
   public:
-    // virtual function (abstract function)
-    // In C++, an interface can be simulated 
-    // by making all methods pure virtual. 
-    virtual void fun() = 0;
+    virtual string sound() = 0;
 };
- 
-class Derived : public Base {
+
+// A number of derived classes
+class Dog : public Animal {
   public:
-    // implementation of virtual function
-    void fun() { 
-      cout << "fun() is called"; 
+    string sound() {
+      return "bow wow";
     }
 };
- 
-int main(void) {
-  Derived d;
 
-  d.fun();
+class Cat : public Animal {
+  public:
+    string sound() {
+      return "meow";
+    }
+};
 
-  return 0;
-}
-
-/*
-Output
-
-fun() is called
-*/
+class Pig : public Animal {
+  public:
+    string sound() {
+      return "wee wee";
+    }
+};

@@ -2,41 +2,56 @@
 #include <string>
 using namespace std;
 
-// Abstract method: sound
+// Abstract class
 class Animal {
   public:
-    virtual string sound() = 0;
+    virtual void sound() = 0;
+    // virtual destructor is not provided automatically.
+    virtual ~Animal();
 };
 
 // Each derived class can implement different form of sound.
-class Pig : public Animal {
+class Dog : public Animal {
   public:
-    string sound() {
-      return "wee wee";
+    void sound() {
+      cout << "bow wow" << endl;
     }
 };
 
-class Dog : public Animal {
+class Cat : public Animal {
   public:
-    string sound() {
-      return "bow wow";
+    void sound() {
+      cout << "meow" << endl;
+    }
+};
+
+class Pig : public Animal {
+  public:
+    void sound() {
+      cout << "wee wee" << endl;
     }
 };
 
 int main() {
-  Pig pig;
-  Dog dog;
-  
-  cout << "Pigs: " + pig.sound() << endl;
-  cout << "Dogs: " + dog.sound();
-  
-  return 0;
-}
+  // Objects to be treated as instances of their parent class 
+  // rather than their actual class.
+  Animal* dog = new Dog();
+  Animal* cat = new Cat();
+  Animal* pig = new Pig();
 
+  dog->sound();
+  cat->sound();
+  pig->sound();
+
+  delete dog;
+  delete cat;
+  delete pig;
+}
 
 /*
 Output
 
-Pigs: wee wee
-Dogs: bow wow
+bow wow
+meow
+wee wee
 */

@@ -2,28 +2,33 @@
 #include <string>
 using namespace std;
 
+// Base class
 class Car {
   public:
     string model;
     string motor;
+
+    void run() {
+      cout << "It is running";
+    }
 };
 
+// Derived class
 class KoreanCar : public Car {
   // no need to write again.
 };
 
 int main() {
-  KoreanCar car;
+  KoreanCar avanteHybrid;
 
-  car.model = "XM3";
-  car.motor = "Hybrid";
-
-  cout << car.model + " " +  car.motor;
+  avanteHybrid.model = "Avante";
+  avanteHybrid.motor = "Hybrid";
+  avanteHybrid.run();
 }
 
 /*
 Output
 
-XM3 Hybrid
+It is running
 */
 

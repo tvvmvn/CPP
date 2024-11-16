@@ -11,14 +11,14 @@ class Airplane {
 };
 
 // Mediator Interface
-class AirTrafficControlTower {
+class ControlTower {
   public:
     virtual void takeoffClearance(Airplane* airplane) = 0;
-    virtual ~AirTrafficControlTower() {};
+    virtual ~ControlTower() {};
 };
 
 // Concrete Mediator
-class AirportControlTower : public AirTrafficControlTower {
+class ControlTowerImpl : public ControlTower {
   public:
     void takeoffClearance(Airplane* airplane) override {
       // Checking air traffic for example in here..
@@ -30,10 +30,10 @@ class AirportControlTower : public AirTrafficControlTower {
 // Concrete Colleague
 class CommercialAirplane : public Airplane {
   private:
-    AirTrafficControlTower* mediator;
+    ControlTower* mediator;
 
   public:
-    CommercialAirplane(AirTrafficControlTower* mediator, string id) : mediator(mediator) {
+    CommercialAirplane(ControlTower* mediator, string id) : mediator(mediator) {
       this->id = id;
     }
 
@@ -45,7 +45,7 @@ class CommercialAirplane : public Airplane {
 // Main class
 int main() {
   // Mediator
-  AirTrafficControlTower* controlTower = new AirportControlTower();
+  ControlTower* controlTower = new ControlTowerImpl();
 
   // Colleagues to be mediated
   Airplane* airplane1 = new CommercialAirplane(controlTower, "A1");
